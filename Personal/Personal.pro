@@ -11,10 +11,12 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     login.cpp \
+    message.cpp \
     personmessage.cpp
 
 HEADERS += \
     login.h \
+    message.h \
     personmessage.h
 
 FORMS += \

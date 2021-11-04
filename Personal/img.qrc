@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Image/logo.jpg</file>
-        <file>LoginF.qml</file>
+        <file>MyItem.qml</file>
     </qresource>
 </RCC>
