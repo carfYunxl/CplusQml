@@ -3,5 +3,24 @@
         <file>Image/logo.jpg</file>
         <file>MyItem.qml</file>
         <file>LoginPage.qml</file>
+        <file>Image/leaf_big.png</file>
+        <file>Image/leaf_middle.png</file>
+        <file>Image/leaf_small.png</file>
+        <file>Image/star_b.png</file>
+        <file>Image/star_big.png</file>
+        <file>Image/star_m.png</file>
+        <file>Image/star_mb.png</file>
+        <file>Image/star_s.png</file>
+        <file>Image/star_sb.png</file>
+        <file>Image/star_ss.png</file>
+        <file>Image/star_ssb.png</file>
+        <file>Image/bg1.jpg</file>
+        <file>Image/bg2.jpg</file>
+        <file>Image/bg3.jpg</file>
+        <file>Image/bg4.png</file>
+        <file>Test.qml</file>
+        <file>TestForm.ui.qml</file>
+        <file>Image/bg5.jpg</file>
+        <file>Image/bg6.jpg</file>
     </qresource>
 </RCC>

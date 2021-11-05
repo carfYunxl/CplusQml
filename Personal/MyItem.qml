@@ -6,7 +6,7 @@ import helllo 1.0
 import msgA 1.0
 import msgB 1.0
 import login 1.0
-ApplicationWindow {
+Item {
     id: root
     width: 600
     height: 400
