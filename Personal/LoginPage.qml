@@ -199,6 +199,9 @@ ApplicationWindow{
             lo.show()
             root.hide()
         }
+    }
+
+    function checkLogin(Account,Passwod){
 
     }
 }
