@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>Image/logo.jpg</file>
         <file>MyItem.qml</file>
+        <file>LoginPage.qml</file>
     </qresource>
 </RCC>

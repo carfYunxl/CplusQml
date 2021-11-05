@@ -5,22 +5,33 @@ import QtQuick.Dialogs
 import helllo 1.0
 import msgA 1.0
 import msgB 1.0
-Text {
-    id: name
-    text: pm.name  + md.body.text1
+import login 1.0
+ApplicationWindow {
+    id: root
+    width: 600
+    height: 400
+    visible: true
 
-    Message
-    {
-        id:md
-        body:MessageBody
+    Text {
+        id: name
+        anchors.centerIn: parent
+        text: pm.name  + md.body.text1 + pm.age
+
+        Message
         {
-            text1:"Hello World"
+            id:md
+            body:MessageBody
+            {
+                text1:"Hello World"
+            }
+        }
+        PersonMessage{
+            id:pm
+            name: "yunxinle"
+            age:12
         }
     }
-    PersonMessage{
-        id:pm
-        name: "yunxinle"
-    }
+
 }
 
 

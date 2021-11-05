@@ -12,12 +12,14 @@ SOURCES += \
     main.cpp \
     login.cpp \
     message.cpp \
-    personmessage.cpp
+    personmessage.cpp \
+    showlogin.cpp
 
 HEADERS += \
     login.h \
     message.h \
-    personmessage.h
+    personmessage.h \
+    showlogin.h
 
 FORMS += \
     login.ui
