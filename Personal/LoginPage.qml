@@ -1,13 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import login 1.0
-import msgA 1.0
-import msgB 1.0
-import helllo 1.0
-import sLogin 1.0
-import Qt.labs.platform 1.0
 import QtQuick.Particles 2.12
+import checkLogin 1.0
+import showpage 1.0
 ApplicationWindow{
     id:root
     width: 500
@@ -15,14 +11,15 @@ ApplicationWindow{
     visible: true
     title: qsTr("Login")
 
+
     Rectangle{
         id:sky
         width: root.width
         height: root.height
 
         gradient: Gradient{
-            GradientStop{position: 0.0; color: "#0080FF"}
-            GradientStop{position: 1.0; color: "white"}
+            GradientStop{position: 0.0; color: "darkblue"}
+            GradientStop{position: 1.0; color: "gray"}
         }
     }
 /*
@@ -91,117 +88,183 @@ ApplicationWindow{
 
     Image{
         id:logo
-        width: parent.width * 0.8
-        height: width*0.8
+        width: parent.width * 0.7
+        height: width
         x:parent.width / 2 - width / 2
         y:30
-        opacity: 0.6
-        source: "qrc:/Image/bg1.jpg"
+        opacity: 1.0
+        source: "qrc:/Image/bg7.jpg"
 
         SequentialAnimation on opacity{
             loops: Animation.Infinite
-            PropertyAnimation { to: 0.4 ;duration: 4000}
-            PropertyAnimation { to: 0.8 ;duration: 4000}
+            PropertyAnimation { to: 0.0 ;duration: 2500}
+            PropertyAnimation { to: 1.0 ;duration: 2500}
         }
 
-/*
-        property bool running:false
         Image {
-            id: star
-            x:width / 2
-            y:height / 2
-            source: "qrc:/Image/star_s.png"
+            id: run
+            x:0
+            y:logo.height - width
+            source: "qrc:/Image/QE.png"
 
-            NumberAnimation on x{
-                to:animbackground.width - 50
-                duration: 4000
-                running: animbackground.running
-            }
-
-            NumberAnimation on y{
-                to:animbackground.height - 50
-                duration: 4000
-                running: animbackground.running
-            }
-
-            RotationAnimation on rotation {
-                to:3600
-                duration: 4000
-                running: animbackground.running
+            SequentialAnimation on x{
+                loops: Animation.Infinite
+                NumberAnimation { to: logo.width - run.width ;duration: 2500}
+                NumberAnimation { to: 0 ; duration: 2500}
             }
         }
-
-        MouseArea{
-            anchors.fill: animbackground
-            onClicked: animbackground.running = true
-        }*/
     }
-    ShowLogin{
-        window: Login{
-        id:lo
-        }
-    }
-    Text{
+    Label{
         id:account
         width: 80
-        height: 30
+        height: 50
         y:logo.y + logo.height + 30
         x:logo.x + 50
-
-        text: "请输入账号:"
+        Text {
+            anchors.centerIn: account
+            text: qsTr("请输入账号 :")
+            font.pointSize: 10
+        }
     }
-    TextInput{
+    TextField{
         id:inputaccount
         width: 150
-        height: 30
+        height: 50
         y:account.y
-        x:logo.x + logo.width - width
+        x:account.x + account.width + 30
+        cursorVisible: true
     }
-    Text{
+    Label{
         id:password
         width: 80
-        height: 30
-        y:account.y + 50
+        height: 50
+        y:account.y + 70
         x:logo.x + 50
-
-        text: "请输入密码:"
+        Text {
+            anchors.centerIn: password
+            text: qsTr("请输入密码 :")
+            font.pointSize: 10
+        }
     }
-    TextInput{
+    TextField{
         id:inputpassword
         width: 150
-        height: 30
-        y:inputaccount.y + 50
+        height: 50
+        y:inputaccount.y + 70
         x:inputaccount.x
-
+        cursorVisible: true
     }
     RoundButton{
         id:register
         width: 100
-        height: 30
+        height: 40
         x:logo.x
         y:password.y + 50
-
-        text: "Register"
+        radius: 5
+        text: "注册"
         onClicked:{
-
+            register_dialog.open()
         }
 
     }
     RoundButton{
         id:login
         width: 100
-        height: 30
+        height: 40
         x:logo.x + logo.width - width
         y:inputpassword.y + 50
-
-        text: "Login"
+        radius: 5
+        text: "登陆"
         onClicked:{
-            lo.show()
-            root.hide()
+            check_login.checkText(inputaccount.text,inputpassword.text)
+        }
+
+    }
+
+    ShowPage{
+        id:sp
+    }
+
+    CheckLogin{
+        id:check_login
+
+        onCheckOk: {
+            sp.showWorkPage(":/MyItem.qml")
+            //root.hide()
+            console.log("SUCCESS!")
+        }
+        onCheckNo: {
+            login_dialog.open()
+            console.log("WRONG!")
         }
     }
 
-    function checkLogin(Account,Passwod){
+    Dialog{
+        id:login_dialog
+        width: root.width * 0.5
+        height: root.height * 0.5
+        x:root.width * 0.2
+        y:root.height * 0.2
+        title:qsTr("<h2><b>Info</b></h2>")
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        modal:false
 
+        background: Rectangle
+        {
+            color:"gray"
+        }
+
+        Text {
+            id: inf
+            anchors.fill: parent
+            //warpMode:Text.Wrap
+            text: qsTr(
+                      "Your account or password is wrong!
+First:   Check your account.
+Second:  Check your password.
+Third:   Try again!
+")
+        }
+    }
+
+    Dialog{
+        id:register_dialog
+        width: root.width * 0.5
+        height: root.height * 0.5
+        x:root.width * 0.2
+        y:root.height * 0.2
+        title:qsTr("<h2><b>注册</b></h2>")
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        modal:false
+        leftMargin:5
+        rightMargin:5
+        background: Rectangle{
+            color:"gray"
+        }
+        TextField{
+            id:input_acc
+            width: register_dialog.width - 50
+            height: 50
+            x:0
+            y:register_dialog.height * 0.05
+            color: "green"
+
+        }
+        TextField{
+            id:input_pwd
+            width: register_dialog.width - 50
+            height: 50
+            x:0
+            y:input_acc.y + 70
+            color: "green"
+
+        }
+
+        onAccepted: {
+            check_login.writeIni(input_acc.text,input_pwd.text)
+        }
+        onRejected: {
+            console.log("you canceled!")
+        }
     }
 }

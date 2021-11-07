@@ -22,7 +22,6 @@ public:
             emit windowChanged();
         }
     }
-
 signals:
     void windowChanged();
 

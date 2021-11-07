@@ -20,5 +20,7 @@
         <file>Image/bg4.png</file>
         <file>Image/bg5.jpg</file>
         <file>Image/bg6.jpg</file>
+        <file>Image/bg7.jpg</file>
+        <file>Image/QE.png</file>
     </qresource>
 </RCC>

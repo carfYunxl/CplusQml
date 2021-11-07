@@ -5,7 +5,6 @@ import QtQuick.Dialogs
 import helllo 1.0
 import msgA 1.0
 import msgB 1.0
-import login 1.0
 Item {
     id: root
     width: 600

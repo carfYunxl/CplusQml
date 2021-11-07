@@ -1,4 +1,5 @@
-QT       += core gui quick
+QT       += core gui quick sql
+QT += quickcontrols2
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,20 +10,19 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    checklogin.cpp \
     main.cpp \
-    login.cpp \
     message.cpp \
     personmessage.cpp \
-    showlogin.cpp
+    showpage.cpp
 
 HEADERS += \
-    login.h \
+    checklogin.h \
     message.h \
     personmessage.h \
-    showlogin.h
+    showpage.h
 
-FORMS += \
-    login.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
