@@ -2,22 +2,21 @@
 #define SHOWPAGE_H
 
 #include <QObject>
-#include <QQuickView>
+#include <QQmlApplicationEngine>
 class ShowPage : public QObject
 {
     Q_OBJECT
 public:
     explicit ShowPage(QObject *parent = nullptr);
 
-    Q_INVOKABLE void showWorkPage(QString filepath)
+    Q_INVOKABLE void showWorkPage(const QString& filepath)
     {
-        view.setSource(QUrl::fromLocalFile(filepath));
-        view.show();
+        engine.load(QUrl::fromUserInput(filepath));
     }
 signals:
 
 private:
-    QQuickView view;
+    QQmlApplicationEngine engine;
 };
 
 #endif // SHOWPAGE_H

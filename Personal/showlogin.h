@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include "login.h"
+#include "test.h"
+#include <QQmlApplicationEngine>
 class ShowLogin : public QObject
 {
     Q_OBJECT
@@ -22,11 +24,17 @@ public:
             emit windowChanged();
         }
     }
+
+    Q_INVOKABLE void sshow()
+    {
+        engine.load(QUrl::fromUserInput("qrc:/Qml/MyItem.qml"));
+    }
 signals:
     void windowChanged();
 
 private:
     Login* m_window;
+    QQmlApplicationEngine engine;
 };
 
 #endif // SHOWLOGIN_H

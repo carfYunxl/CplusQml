@@ -37,7 +37,6 @@ public:
         {
             return;
         }
-        qDebug() << "111";
         QString filepath = "./user.ini";
         QSettings settings(filepath,QSettings::IniFormat);
         /*if((settings.value(QString("ACCOUNT/") + account).toString() != "") || (settings.value(QString("ACCOUNT/") + password).toString() != ""))

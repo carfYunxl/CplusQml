@@ -1,9 +1,11 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.12
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.12
 import QtQuick.Particles 2.12
 import checkLogin 1.0
 import showpage 1.0
+
+import "./Qml"
 ApplicationWindow{
     id:root
     width: 500
@@ -22,20 +24,6 @@ ApplicationWindow{
             GradientStop{position: 1.0; color: "gray"}
         }
     }
-/*
-    Rectangle{
-        id:ground
-        anchors.top: sky.bottom
-        width: root.width
-        height: root.height * 0.25
-
-        gradient: Gradient{
-            GradientStop{position: 0.0; color: "blue"}
-            GradientStop{position: 0.6; color: "darkgray"}
-            GradientStop{position: 1.0; color: "gray"}
-        }
-    }*/
-
     ParticleSystem
     {
         id:partisystem
@@ -74,7 +62,7 @@ ApplicationWindow{
         strength: 100
     }
     ImageParticle{
-        color: '#FFD700'
+        color: 'yellow'
         source: "qrc:/Image/leaf_middle.png"
         opacity: 0.6
         system: partisystem
@@ -83,7 +71,8 @@ ApplicationWindow{
         rotationVariation: 5
         rotationVelocity: 45
         rotationVelocityVariation: 15
-        entryEffect: ImageParticle.scale
+        //entryEffect: ImageParticle.scale
+        alpha: 1.0
     }
 
     Image{
@@ -114,58 +103,51 @@ ApplicationWindow{
             }
         }
     }
-    Label{
-        id:account
-        width: 80
+    MyTextField{
+        id:inputaccount
+        width: logo.width
         height: 50
         y:logo.y + logo.height + 30
-        x:logo.x + 50
-        Text {
-            anchors.centerIn: account
-            text: qsTr("请输入账号 :")
-            font.pointSize: 10
-        }
+        x:(logo.width - width) / 2 + logo.x
+        placeholderText: "enter account"
+        horizontalAlignment: "AlignHCenter"
+        verticalAlignment: "AlignVCenter"
+        selectByMouse:true
+        color: "red"
     }
-    TextField{
-        id:inputaccount
-        width: 150
-        height: 50
-        y:account.y
-        x:account.x + account.width + 30
-        cursorVisible: true
-    }
-    Label{
-        id:password
-        width: 80
-        height: 50
-        y:account.y + 70
-        x:logo.x + 50
-        Text {
-            anchors.centerIn: password
-            text: qsTr("请输入密码 :")
-            font.pointSize: 10
-        }
-    }
-    TextField{
+    MyTextField{
         id:inputpassword
-        width: 150
+        width: logo.width
         height: 50
         y:inputaccount.y + 70
         x:inputaccount.x
-        cursorVisible: true
+        placeholderText: "enter password"
+        horizontalAlignment: "AlignHCenter"
+        verticalAlignment: "AlignVCenter"
+        selectByMouse:true
+        color: "red"
     }
     RoundButton{
         id:register
         width: 100
         height: 40
         x:logo.x
-        y:password.y + 50
+        y:inputpassword.y + 50
         radius: 5
         text: "注册"
+        display: AbstractButton.IconOnly
+        icon.source: "qrc:/Image/leaf_small.png"
+        icon.color: "blue"
+        hoverEnabled: true
+        ToolTip.visible: hovered
+        ToolTip.text: qsTr("注册您自己的账号")
+        background: Rectangle{
+            opacity: enabled ? 0.5 : 0.3
+            color: register.hovered ? "red" : "lightblue"
+        }
         onClicked:{
             register_dialog.open()
         }
-
     }
     RoundButton{
         id:login
@@ -175,6 +157,16 @@ ApplicationWindow{
         y:inputpassword.y + 50
         radius: 5
         text: "登陆"
+        display: AbstractButton.IconOnly
+        icon.source: "qrc:/Image/star_b.png"
+        icon.color: "red"
+        hoverEnabled: true
+        ToolTip.visible: hovered
+        ToolTip.text: qsTr("登陆您自己的账号")
+        background: Rectangle{
+            opacity: enabled ? 0.5 : 0.3
+            color: login.hovered ? "blue" : "lightblue"
+        }
         onClicked:{
             check_login.checkText(inputaccount.text,inputpassword.text)
         }
@@ -189,8 +181,8 @@ ApplicationWindow{
         id:check_login
 
         onCheckOk: {
-            sp.showWorkPage(":/MyItem.qml")
-            //root.hide()
+            sp.showWorkPage("qrc:/Qml/YXL_WorkBench.qml")
+            root.hide()
             console.log("SUCCESS!")
         }
         onCheckNo: {
@@ -267,4 +259,5 @@ Third:   Try again!
             console.log("you canceled!")
         }
     }
+
 }

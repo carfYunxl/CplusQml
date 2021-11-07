@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Image/logo.jpg</file>
-        <file>MyItem.qml</file>
         <file>LoginPage.qml</file>
         <file>Image/leaf_big.png</file>
         <file>Image/leaf_middle.png</file>
@@ -22,5 +21,44 @@
         <file>Image/bg6.jpg</file>
         <file>Image/bg7.jpg</file>
         <file>Image/QE.png</file>
+        <file>Qml/MyApplicationWindow.qml</file>
+        <file>Qml/MyBusyIndicator.qml</file>
+        <file>Qml/MyItem.qml</file>
+        <file>Qml/MyTextArea.qml</file>
+        <file>Qml/MyTextField.qml</file>
+        <file>Qml/YXL_WorkBench.qml</file>
+        <file>icon_sys/a.png</file>
+        <file>icon_sys/aa.png</file>
+        <file>icon_sys/b.png</file>
+        <file>icon_sys/bb.png</file>
+        <file>icon_sys/c.png</file>
+        <file>icon_sys/cc.png</file>
+        <file>icon_sys/d.png</file>
+        <file>icon_sys/dd.png</file>
+        <file>icon_sys/e.png</file>
+        <file>icon_sys/ee.png</file>
+        <file>icon_sys/f.png</file>
+        <file>icon_sys/g.png</file>
+        <file>icon_sys/h.png</file>
+        <file>icon_sys/i.png</file>
+        <file>icon_sys/j.png</file>
+        <file>icon_sys/k.png</file>
+        <file>icon_sys/l.png</file>
+        <file>icon_sys/m.png</file>
+        <file>icon_sys/n.png</file>
+        <file>icon_sys/o.png</file>
+        <file>icon_sys/p.png</file>
+        <file>icon_sys/q.png</file>
+        <file>icon_sys/r.png</file>
+        <file>icon_sys/s.png</file>
+        <file>icon_sys/t.png</file>
+        <file>icon_sys/u.png</file>
+        <file>icon_sys/v.png</file>
+        <file>icon_sys/w.png</file>
+        <file>icon_sys/x.png</file>
+        <file>icon_sys/y.png</file>
+        <file>icon_sys/z.png</file>
+        <file>Qml/MySQLPage.qml</file>
+        <file>Qml/MyThreadPage.qml</file>
     </qresource>
 </RCC>
