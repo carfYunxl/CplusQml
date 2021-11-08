@@ -12,11 +12,15 @@ CONFIG += c++11
 SOURCES += \
     checklogin.cpp \
     main.cpp \
+    my_file.cpp \
+    my_sql.cpp \
     personmessage.cpp \
     showpage.cpp
 
 HEADERS += \
     checklogin.h \
+    my_file.h \
+    my_sql.h \
     personmessage.h \
     showpage.h
 

@@ -3,11 +3,20 @@ import QtQuick.Controls 2.12
 
 TextArea {
     id: control
-    placeholderText: qsTr("Enter description")
+    placeholderText: control.text
+    horizontalAlignment:TextEdit.AlignHCenter
+    verticalAlignment:TextEdit.AlignVCenter
+    opacity: 1.0
+    SequentialAnimation on opacity {
+        loops: Animation.Infinite
+        PropertyAnimation{ to:0.1; duration:1500}
+        PropertyAnimation{ to:1.0; duration:1500}
+    }
 
     background: Rectangle {
-    implicitWidth: 200
-    implicitHeight: 40
-    border.color: control.enabled ? "#21be2b" : "transparent"
+        implicitWidth: 200
+        implicitHeight: 40
+        border.color: "transparent"
+        color: "lightblue"
     }
 }

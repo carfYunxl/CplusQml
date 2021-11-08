@@ -60,5 +60,6 @@
         <file>icon_sys/z.png</file>
         <file>Qml/MySQLPage.qml</file>
         <file>Qml/MyThreadPage.qml</file>
+        <file>Qml/MyCodeDialog.qml</file>
     </qresource>
 </RCC>
