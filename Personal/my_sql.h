@@ -14,11 +14,9 @@ public:
 
     Q_INVOKABLE bool connectToDatabase(QString hostName,QString dataBaseName,QString userName,QString passWord);
     Q_INVOKABLE QString showDrivers();
-    Q_INVOKABLE QString readDriversCode();
-    Q_INVOKABLE QString readconnectToDatabaseCode();
-    Q_INVOKABLE QString readcreateTableCode();
-    Q_INVOKABLE void saveDriversCode(QString);
     Q_INVOKABLE bool createTable(QString tableName,QStringList args);
+    Q_INVOKABLE QVariant selectItem(QString sqlSelect);
+    Q_INVOKABLE bool insertItem(QString sqlInsert);
 signals:
 
 };

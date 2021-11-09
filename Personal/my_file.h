@@ -7,8 +7,11 @@ class My_File : public QObject
 {
     Q_OBJECT
 public:
-    explicit My_File(QObject *parent = nullptr){}
+    explicit My_File(QObject *parent = nullptr){
+        Q_UNUSED(parent)
+    }
 
+    Q_INVOKABLE QString readCode(QString tag);
 signals:
 
 };

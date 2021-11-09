@@ -1,10 +1,13 @@
 #include "my_sql.h"
 #include <QFile>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QQueue>
 My_SQL::My_SQL(QObject *parent) : QObject(parent)
 {
 
 }
-
+//@2   ConnectToDataBaseCode:
 bool My_SQL::connectToDatabase(QString hostName, QString dataBaseName, QString userName, QString passWord)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
@@ -20,7 +23,9 @@ bool My_SQL::connectToDatabase(QString hostName, QString dataBaseName, QString u
     }
     return true;
 }
+//2@
 
+//@1    DriverCode:
 QString My_SQL::showDrivers()
 {
     QStringList stringList =  QSqlDatabase::drivers();
@@ -31,62 +36,8 @@ QString My_SQL::showDrivers()
     }
     return tmp;
 }
-
-QString My_SQL::readDriversCode()
-{
-    QFile file("D:/gitFile/CplusQml/Personal/src/my_sql/sql_drivers.cpp");
-    if(!file.open(QIODevice::ReadWrite))
-    {
-        return "Open Filed!";
-    }
-    QString str;
-    QTextStream in(&file);
-    str = in.readAll();
-    file.close();
-    return str;
-}
-
-QString My_SQL::readconnectToDatabaseCode()
-{
-    QFile file("D:/gitFile/CplusQml/Personal/src/my_sql/sql_createToDataBase.cpp");
-    if(!file.open(QIODevice::ReadWrite))
-    {
-        return "Open Filed!";
-    }
-    QString str;
-    QTextStream in(&file);
-    str = in.readAll();
-    file.close();
-    return str;
-}
-
-QString My_SQL::readcreateTableCode()
-{
-    QFile file("D:/gitFile/CplusQml/Personal/src/my_sql/sql_createTable.cpp");
-    if(!file.open(QIODevice::ReadWrite))
-    {
-        return "Open Filed!";
-    }
-    QString str;
-    QTextStream in(&file);
-    str = in.readAll();
-    file.close();
-    return str;
-}
-
-void My_SQL::saveDriversCode(QString string)
-{
-    QFile file("D:/gitFile/CplusQml/Personal/src/my_sql/sql_drivers.cpp");
-    if(!file.open(QIODevice::ReadWrite))
-    {
-        return;
-    }
-    QTextStream out(&file);
-    out << string;
-    file.flush();
-    file.close();
-}
-
+//1@
+//@3    CreateTableCode:
 bool My_SQL::createTable(QString tableName, QStringList args)
 {
     int num = args.size();
@@ -104,4 +55,34 @@ bool My_SQL::createTable(QString tableName, QStringList args)
         }
         return true;
 }
+//3@
+
+//@4 Select:
+QVariant My_SQL::selectItem(QString sqlSelectString)
+{
+    QSqlQuery query;
+    bool ok = query.exec(sqlSelectString);
+    if(!ok)
+    {
+        return QQueue<QVariant>();
+    }
+    if(query.next())
+    {
+        return query.value(0);
+    }
+    return QVariant();
+}
+//4@
+
+//@5
+bool My_SQL::insertItem(QString sqlInsert)
+{
+    QSqlQuery query;
+    if(!query.exec(sqlInsert))
+    {
+        return false;
+    }
+    return true;
+}
+//5@
 

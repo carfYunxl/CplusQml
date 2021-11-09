@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Particles 2.12
@@ -56,7 +57,7 @@ ApplicationWindow {
             title:qsTr("Back")
             MenuItem{
                 id:homeAction
-                text: qsTr("backToLogin")
+                text: qsTr("切换账号")
                 icon.source: "qrc:/icon_sys/c.png"
                 onTriggered: {
                     show.showWorkPage("qrc:/LoginPage.qml")
@@ -67,8 +68,15 @@ ApplicationWindow {
     }
 
     header: ToolBar {
-        RowLayout {
+        id:toorbar
+        spacing: 20
+        background: Rectangle{
+            color: "lightblue"
+            opacity: 1.0
+        }
+        Flow {
                      anchors.fill: parent
+
                      ToolButton {
                          id:tb1
                          display: AbstractButton.IconOnly
@@ -192,7 +200,7 @@ ApplicationWindow {
         MyThreadPage{
 
         }
-        MySQLPage{
+        MyNetworkPage{
 
         }
     }

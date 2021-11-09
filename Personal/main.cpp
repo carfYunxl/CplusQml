@@ -8,6 +8,11 @@
 #include <QQuickStyle>
 #include "showpage.h"
 #include "my_sql.h"
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include "my_file.h"
+#include <QFile>
+#include <QTextStream>
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -18,6 +23,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<CheckLogin>("checkLogin",1,0,"CheckLogin");
     qmlRegisterType<ShowPage>("showpage",1,0,"ShowPage");
     qmlRegisterType<My_SQL>("mysql",1,0,"My_SQL");
+    qmlRegisterType<My_File>("myfile",1,0,"My_File");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/Qml/YXL_WorkBench.qml"));

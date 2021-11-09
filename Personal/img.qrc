@@ -61,5 +61,16 @@
         <file>Qml/MySQLPage.qml</file>
         <file>Qml/MyThreadPage.qml</file>
         <file>Qml/MyCodeDialog.qml</file>
+        <file>Qml/MyNetworkPage.qml</file>
+        <file>Qml/ShowEnabledDriver.qml</file>
+        <file>Qml/ShowDriverSourceCode.qml</file>
+        <file>Qml/ShowConnectToDataBaseSourceCode.qml</file>
+        <file>Qml/ConnectToDataBase.qml</file>
+        <file>Qml/CreateTable.qml</file>
+        <file>Qml/ShowCreateTableSourceCode.qml</file>
+        <file>Qml/SelectTable.qml</file>
+        <file>Qml/ShowSelectSourceCode.qml</file>
+        <file>Qml/SqlInsert.qml</file>
+        <file>Qml/ShowInsertSourceCode.qml</file>
     </qresource>
 </RCC>

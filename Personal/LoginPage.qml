@@ -21,7 +21,7 @@ ApplicationWindow{
 
         gradient: Gradient{
             GradientStop{position: 0.0; color: "darkblue"}
-            GradientStop{position: 1.0; color: "gray"}
+            GradientStop{position: 1.0; color: "white"}
         }
     }
     ParticleSystem
