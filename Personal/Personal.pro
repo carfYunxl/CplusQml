@@ -13,16 +13,18 @@ SOURCES += \
     checklogin.cpp \
     main.cpp \
     my_file.cpp \
+    my_multithread.cpp \
     my_sql.cpp \
-    personmessage.cpp \
-    showpage.cpp
+    showpage.cpp \
+    worker.cpp
 
 HEADERS += \
     checklogin.h \
     my_file.h \
+    my_multithread.h \
     my_sql.h \
-    personmessage.h \
-    showpage.h
+    showpage.h \
+    worker.h
 
 FORMS +=
 

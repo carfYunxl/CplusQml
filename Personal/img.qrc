@@ -72,5 +72,10 @@
         <file>Qml/ShowSelectSourceCode.qml</file>
         <file>Qml/SqlInsert.qml</file>
         <file>Qml/ShowInsertSourceCode.qml</file>
+        <file>Image/bp8jpg.jpg</file>
+        <file>Image/bg9.jpg</file>
+        <file>Qml/MyThread.qml</file>
+        <file>Qml/MyThreadPool.qml</file>
+        <file>Qml/ScrollTextEdit.qml</file>
     </qresource>
 </RCC>

@@ -32,7 +32,7 @@ Item {
                 icon.source : hovered ? "qrc:/icon_sys/a.png" : "qrc:/icon_sys/h.png"
                 text: hovered ? qsTr("按下显示") : qsTr("显示本地数据库驱动")
                 onClicked: {
-                    sp.showWorkPage("qrc:/Qml/ShowEnabledDriver.qml");
+                    sp.showWorkPage("qrc:/Qml/ShowEnabledDriver.qml")
                 }
             }
             Label{

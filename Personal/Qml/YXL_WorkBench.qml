@@ -129,11 +129,12 @@ ApplicationWindow {
         }
     }
 
-    background: Rectangle {
-        gradient: Gradient {
+    background: Image{
+        /*gradient: Gradient {
             GradientStop { position: 0; color: "gray" }
             GradientStop { position: 1; color: "lightblue" }
-        }
+        }*/
+        source: "qrc:/Image/bg9.jpg"
     }
 
     ParticleSystem
